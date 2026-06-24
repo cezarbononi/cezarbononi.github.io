@@ -59,6 +59,18 @@ export type LabExperienceItem = {
   tags: string[];
 };
 
+export type WorkflowStepItem = {
+  label: string;
+  title: string;
+  body: string;
+  tags: string[];
+};
+
+export type WorkflowSignalItem = {
+  value: string;
+  label: string;
+};
+
 export type AcademicItem = {
   period: string;
   institution: string;
@@ -108,6 +120,14 @@ export type PortfolioCopy = {
     kicker: string;
     heading: string;
     items: string[];
+  };
+  workflow: {
+    kicker: string;
+    heading: string;
+    lead: string;
+    sequence: string;
+    steps: WorkflowStepItem[];
+    signals: WorkflowSignalItem[];
   };
   experience: {
     kicker: string;
@@ -240,8 +260,59 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       heading: "Stack",
       items: stackItems,
     },
+    workflow: {
+      kicker: "// 04_AI_WORKFLOW",
+      heading: "AI-assisted Engineering",
+      lead:
+        "Uso IA como camada operacional de engenharia: revisar, desafiar, refatorar, testar e documentar com loops curtos, contexto claro e decisão humana no centro.",
+      sequence:
+        "Code Review → Refactor → Tests → Documentation → Architecture Exploration",
+      steps: [
+        {
+          label: "CODE REVIEW",
+          title: "Leitura crítica de diffs",
+          body:
+            "Prompts orientados por contexto para mapear riscos, regressões, contratos quebrados e pontos cegos antes do merge.",
+          tags: ["diff reading", "risk map", "prompt loops"],
+        },
+        {
+          label: "REFACTOR",
+          title: "Refactor com harness",
+          body:
+            "Pequenos movimentos protegidos por harness, fixtures e checkpoints para reduzir débito sem perder comportamento.",
+          tags: ["harness", "guardrails", "incremental"],
+        },
+        {
+          label: "TESTS",
+          title: "SDD + TDD pragmatico",
+          body:
+            "Spec-driven development para transformar intenção em cenários, casos de borda e assertions executáveis.",
+          tags: ["SDD", "TDD", "edge cases"],
+        },
+        {
+          label: "DOCS",
+          title: "Documentação viva",
+          body:
+            "Registro de decisões, trade-offs, onboarding técnico e notas de release sem quebrar o fluxo de entrega.",
+          tags: ["ADRs", "release notes", "knowledge base"],
+        },
+        {
+          label: "ARCH",
+          title: "Exploração arquitetural",
+          body:
+            "Comparação de alternativas, desenho de caminhos de migração e validação de arquitetura antes de cristalizar o código.",
+          tags: ["architecture", "trade-offs", "decision loops"],
+        },
+      ],
+      signals: [
+        { value: "ARCH", label: "workflow loops" },
+        { value: "SDD", label: "spec-first prompts" },
+        { value: "QA", label: "review harness" },
+        { value: "DX", label: "docs + velocity" },
+      ],
+    },
     experience: {
-      kicker: "// 04_EXPERIENCE",
+      kicker: "// 05_EXPERIENCE",
       heading: "Experiência",
       featured: [
         {
@@ -338,7 +409,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       },
     },
     academic: {
-      kicker: "// 05_ACADEMIC_ARCHIVE",
+      kicker: "// 06_ACADEMIC_ARCHIVE",
       heading: "Formação",
       items: [
         {
@@ -376,7 +447,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       ],
     },
     contact: {
-      kicker: "// 06_CONNECT",
+      kicker: "// 07_CONNECT",
       heading: "Vamos\nconstruir",
       body:
         "Aberto a desafios de engenharia: produtos financeiros, modernização de frontend e workflows com IA.",
@@ -468,8 +539,59 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       heading: "Stack",
       items: stackItems,
     },
+    workflow: {
+      kicker: "// 04_AI_WORKFLOW",
+      heading: "AI-assisted Engineering",
+      lead:
+        "I use AI as an operational engineering layer: review, challenge, refactor, test and document through short loops, explicit context and human judgment at the center.",
+      sequence:
+        "Code Review → Refactor → Tests → Documentation → Architecture Exploration",
+      steps: [
+        {
+          label: "CODE REVIEW",
+          title: "Critical diff reading",
+          body:
+            "Context-aware prompts map risks, regressions, broken contracts and blind spots before code reaches merge.",
+          tags: ["diff reading", "risk map", "prompt loops"],
+        },
+        {
+          label: "REFACTOR",
+          title: "Harness-backed refactor",
+          body:
+            "Small changes protected by harnesses, fixtures and checkpoints to reduce debt without losing behavior.",
+          tags: ["harness", "guardrails", "incremental"],
+        },
+        {
+          label: "TESTS",
+          title: "SDD + pragmatic TDD",
+          body:
+            "Spec-driven development turns intent into scenarios, edge cases and executable assertions.",
+          tags: ["SDD", "TDD", "edge cases"],
+        },
+        {
+          label: "DOCS",
+          title: "Living documentation",
+          body:
+            "Decisions, trade-offs, technical onboarding and release notes captured without breaking delivery flow.",
+          tags: ["ADRs", "release notes", "knowledge base"],
+        },
+        {
+          label: "ARCH",
+          title: "Architecture exploration",
+          body:
+            "Comparing alternatives, shaping migration paths and validating architecture before code hardens.",
+          tags: ["architecture", "trade-offs", "decision loops"],
+        },
+      ],
+      signals: [
+        { value: "ARCH", label: "workflow loops" },
+        { value: "SDD", label: "spec-first prompts" },
+        { value: "QA", label: "review harness" },
+        { value: "DX", label: "docs + velocity" },
+      ],
+    },
     experience: {
-      kicker: "// 04_EXPERIENCE",
+      kicker: "// 05_EXPERIENCE",
       heading: "Experience",
       featured: [
         {
@@ -535,7 +657,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       },
     },
     academic: {
-      kicker: "// 05_ACADEMIC_ARCHIVE",
+      kicker: "// 06_ACADEMIC_ARCHIVE",
       heading: "Academic",
       items: [
         {
@@ -573,7 +695,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       ],
     },
     contact: {
-      kicker: "// 06_CONNECT",
+      kicker: "// 07_CONNECT",
       heading: "Let's\nbuild",
       body:
         "Open to engineering challenges: financial products, frontend modernization and AI-assisted workflows.",

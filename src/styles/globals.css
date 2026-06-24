@@ -548,6 +548,8 @@ button {
   }
 
   .cy-stack-cell {
+    display: flex;
+    align-items: center;
     min-height: 54px;
     background:
       linear-gradient(135deg, rgba(238, 241, 244, 0.025), transparent 30%),
@@ -568,6 +570,213 @@ button {
     color: var(--bg);
     transform: translateY(-1px);
     box-shadow: 0 0 26px rgba(157, 107, 255, 0.18);
+  }
+
+  .cy-workflow-section {
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 16% 18%, rgba(89, 240, 200, 0.13), transparent 28%),
+      radial-gradient(circle at 86% 74%, rgba(230, 55, 255, 0.1), transparent 30%),
+      linear-gradient(180deg, rgba(8, 8, 12, 0.72), rgba(12, 10, 18, 0.58));
+  }
+
+  .cy-workflow-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(rgba(89, 240, 200, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(157, 107, 255, 0.055) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: linear-gradient(180deg, transparent, black 14%, black 82%, transparent);
+    opacity: 0.55;
+  }
+
+  .cy-workflow-shell {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(89, 240, 200, 0.24);
+    border-radius: 3px;
+    background:
+      linear-gradient(135deg, rgba(89, 240, 200, 0.075), transparent 34%),
+      linear-gradient(225deg, rgba(157, 107, 255, 0.09), transparent 38%),
+      rgba(6, 6, 10, 0.78);
+    box-shadow:
+      0 0 0 1px rgba(157, 107, 255, 0.12) inset,
+      0 28px 80px -62px rgba(89, 240, 200, 0.55);
+  }
+
+  .cy-workflow-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(89, 240, 200, 0.3), transparent 30%) top left / 100% 1px no-repeat,
+      linear-gradient(180deg, rgba(230, 55, 255, 0.22), transparent 42%) top right / 1px 100% no-repeat,
+      repeating-linear-gradient(
+        180deg,
+        rgba(238, 241, 244, 0.022) 0,
+        rgba(238, 241, 244, 0.022) 1px,
+        transparent 1px,
+        transparent 7px
+      );
+    opacity: 0.82;
+  }
+
+  .cy-workflow-shell > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cy-workflow-sequence {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(89, 240, 200, 0.18);
+    padding: 13px clamp(14px, 2vw, 20px);
+    color: rgba(215, 219, 224, 0.68);
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .cy-workflow-sequence span {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 16px rgba(89, 240, 200, 0.38);
+  }
+
+  .cy-workflow-sequence strong {
+    min-width: max-content;
+    color: rgba(238, 241, 244, 0.86);
+    font-weight: 400;
+  }
+
+  .cy-workflow-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(190px, 0.22fr);
+  }
+
+  .cy-workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-width: 0;
+  }
+
+  .cy-workflow-step {
+    position: relative;
+    min-height: 270px;
+    border-right: 1px solid rgba(157, 107, 255, 0.18);
+    background:
+      linear-gradient(180deg, rgba(238, 241, 244, 0.035), transparent 24%),
+      rgba(10, 10, 15, 0.34);
+    padding: clamp(16px, 2vw, 22px);
+    transition:
+      background-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .cy-workflow-step::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16px;
+    width: 44px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), rgba(230, 55, 255, 0.7));
+    opacity: 0.52;
+    transition:
+      opacity 0.25s ease,
+      width 0.25s ease;
+  }
+
+  .cy-workflow-step:hover {
+    transform: translateY(-3px);
+    background:
+      linear-gradient(180deg, rgba(89, 240, 200, 0.08), transparent 28%),
+      rgba(12, 12, 20, 0.72);
+    box-shadow:
+      0 0 0 1px rgba(89, 240, 200, 0.08) inset,
+      0 18px 42px -30px rgba(230, 55, 255, 0.58);
+  }
+
+  .cy-workflow-step:hover::before {
+    width: 74px;
+    opacity: 0.92;
+  }
+
+  .cy-workflow-step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: rgba(89, 240, 200, 0.82);
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .cy-workflow-step-header span {
+    color: rgba(230, 55, 255, 0.78);
+  }
+
+  .cy-workflow-step h3 {
+    margin-top: 28px;
+    color: var(--text-strong);
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(19px, 1.45vw, 24px);
+    font-weight: 700;
+    line-height: 1.04;
+    text-transform: uppercase;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
+  .cy-workflow-step p {
+    margin-top: 13px;
+    color: rgba(215, 219, 224, 0.64);
+    font-size: 13px;
+    line-height: 1.62;
+  }
+
+  .cy-workflow-signals {
+    display: grid;
+    border-left: 1px solid rgba(89, 240, 200, 0.16);
+    background:
+      linear-gradient(180deg, rgba(157, 107, 255, 0.08), transparent 48%),
+      rgba(4, 4, 8, 0.34);
+  }
+
+  .cy-workflow-signal {
+    display: grid;
+    align-content: center;
+    min-height: 96px;
+    border-bottom: 1px solid rgba(157, 107, 255, 0.16);
+    padding: 18px;
+  }
+
+  .cy-workflow-signal strong {
+    color: var(--accent-cyan);
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(26px, 3vw, 42px);
+    line-height: 0.95;
+    text-shadow: 0 0 24px rgba(89, 240, 200, 0.26);
+  }
+
+  .cy-workflow-signal span {
+    margin-top: 8px;
+    color: rgba(215, 219, 224, 0.58);
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .cy-experience-list {
@@ -1154,6 +1363,30 @@ button {
     grid-template-columns: minmax(0, 1fr) clamp(250px, 30vw, 310px);
     gap: clamp(22px, 3.5vw, 38px);
   }
+
+  .cy-workflow-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cy-workflow-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cy-workflow-step {
+    border-bottom: 1px solid rgba(157, 107, 255, 0.18);
+  }
+
+  .cy-workflow-signals {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid rgba(89, 240, 200, 0.16);
+    border-left: 0;
+  }
+
+  .cy-workflow-signal {
+    min-height: 86px;
+    border-right: 1px solid rgba(157, 107, 255, 0.16);
+    border-bottom: 0;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1183,6 +1416,24 @@ button {
   .cy-company-signal {
     width: 44px;
     height: 44px;
+  }
+
+  .cy-workflow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cy-workflow-step {
+    min-height: 240px;
+  }
+
+  .cy-workflow-sequence {
+    align-items: flex-start;
+    flex-direction: column;
+    white-space: normal;
+  }
+
+  .cy-workflow-sequence strong {
+    min-width: 0;
   }
 }
 
@@ -1241,6 +1492,21 @@ button {
 
   .cy-profile-meta {
     flex-direction: column;
+  }
+
+  .cy-workflow-grid,
+  .cy-workflow-signals {
+    grid-template-columns: 1fr;
+  }
+
+  .cy-workflow-step {
+    min-height: auto;
+  }
+
+  .cy-workflow-signal {
+    min-height: 74px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(157, 107, 255, 0.16);
   }
 }
 
