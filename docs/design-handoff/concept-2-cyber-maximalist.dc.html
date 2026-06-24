@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#060608;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:#59f0c8;color:#060608}
+@keyframes cyDrift{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes cyGlitch{0%,88%,100%{text-shadow:0.03em 0 0 rgba(89,240,200,.7),-0.03em 0 0 rgba(157,107,255,.7);transform:translate(0,0)}90%{text-shadow:0.08em 0 0 rgba(89,240,200,.9),-0.07em 0 0 rgba(255,62,165,.9);transform:translate(-2px,0)}93%{text-shadow:-0.06em 0 0 rgba(89,240,200,.9),0.06em 0 0 rgba(157,107,255,.9);transform:translate(2px,0)}96%{text-shadow:0.03em 0 0 rgba(89,240,200,.7),-0.03em 0 0 rgba(157,107,255,.7);transform:translate(0,0)}}
+@keyframes cyScan{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+.cy-nav{display:flex;gap:24px}
+@media(max-width:780px){.cy-nav{display:none}}
+.cy-hide-sm{display:block}
+@media(max-width:620px){.cy-hide-sm{display:none}}
+</style>
+</helmet>
+<div style="position:relative;background:#060608;color:#d7dbe0;font-family:'Chakra Petch',sans-serif;overflow-x:hidden;min-height:100vh">
+
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:1;background-image:linear-gradient(rgba(157,107,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(157,107,255,0.05) 1px,transparent 1px);background-size:46px 46px"></div>
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse at 50% 0%,rgba(157,107,255,0.14),transparent 55%),radial-gradient(ellipse at 90% 90%,rgba(89,240,200,0.10),transparent 50%)"></div>
+  <div style="position:fixed;left:0;right:0;top:0;height:60px;pointer-events:none;z-index:3;background:linear-gradient(rgba(89,240,200,0.10),transparent);animation:cyScan 7s linear infinite"></div>
+  <svg style="position:fixed;inset:0;width:100%;height:100%;opacity:0.05;pointer-events:none;z-index:4;mix-blend-mode:screen" xmlns="http://www.w3.org/2000/svg"><filter id="gn2"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#gn2)"/></svg>
+
+  <!-- HEADER -->
+  <header style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:14px 26px;background:rgba(6,6,8,0.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(157,107,255,0.3)">
+    <a href="index.dc.html" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.16em;display:flex;align-items:center;gap:10px">
+      <span style="display:inline-grid;place-items:center;width:26px;height:26px;background:linear-gradient(135deg,#9d6bff,#59f0c8);color:#060608;font-weight:700;border-radius:2px">CB</span>
+      <span class="cy-hide-sm" style="opacity:0.6;white-space:nowrap">&larr; {{ t.index }}</span>
+    </a>
+    <nav class="cy-nav" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.12em;color:rgba(215,219,224,0.7)">
+      <a href="#about" onMouseEnter="{{ navIn }}" onMouseLeave="{{ navOut }}" style="border-bottom:1px solid transparent">{{ t.nAbout }}</a>
+      <a href="#work" onMouseEnter="{{ navIn }}" onMouseLeave="{{ navOut }}" style="border-bottom:1px solid transparent">{{ t.nWork }}</a>
+      <a href="#stack" onMouseEnter="{{ navIn }}" onMouseLeave="{{ navOut }}" style="border-bottom:1px solid transparent">{{ t.nStack }}</a>
+      <a href="#exp" onMouseEnter="{{ navIn }}" onMouseLeave="{{ navOut }}" style="border-bottom:1px solid transparent">{{ t.nExp }}</a>
+      <a href="#contact" onMouseEnter="{{ navIn }}" onMouseLeave="{{ navOut }}" style="border-bottom:1px solid transparent">{{ t.nContact }}</a>
+    </nav>
+    <div style="display:flex;align-items:center;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;border:1px solid rgba(157,107,255,0.4);border-radius:2px;overflow:hidden">
+      <button onClick="{{ setPt }}" style="{{ ptBtn }}">PT-BR</button>
+      <button onClick="{{ setEn }}" style="{{ enBtn }}">EN-US</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:clamp(34px,7vw,80px) 26px 30px">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.18em;color:rgba(89,240,200,0.8);margin-bottom:28px">
+      <span>[ SYS://CEZAR_BONONI ]</span>
+      <span class="cy-hide-sm">STATUS: <span style="color:#9d6bff">ONLINE</span> · BUILD 2026.6</span>
+    </div>
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.28em;color:#9d6bff;margin-bottom:18px">{{ t.role }}</div>
+    <h1 style="font-family:'Chakra Petch',sans-serif;font-weight:700;line-height:0.88;letter-spacing:0.01em;text-transform:uppercase;font-size:clamp(52px,13vw,180px);color:#eef1f4;animation:cyGlitch 5s infinite">Cezar<br>Bononi</h1>
+    <div style="display:flex;flex-wrap:wrap;gap:20px 40px;margin-top:28px;align-items:flex-start">
+      <p style="max-width:540px;font-size:clamp(16px,2.2vw,22px);line-height:1.4;color:#d7dbe0">{{ t.sub }}</p>
+      <p style="max-width:420px;font-family:'Space Mono',monospace;font-size:13px;line-height:1.7;color:rgba(89,240,200,0.85);border-left:2px solid #59f0c8;padding-left:14px">{{ t.manifesto }}</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+      <a href="#work" style="{{ btnPrimary }}" onMouseEnter="{{ bpIn }}" onMouseLeave="{{ bpOut }}">&#9656; {{ t.bWork }}</a>
+      <a href="https://www.linkedin.com/in/cezar-bononi/" target="_blank" style="{{ btnGhost }}" onMouseEnter="{{ bgIn }}" onMouseLeave="{{ bgOut }}">LinkedIn</a>
+      <a href="https://github.com/cezarbononi" target="_blank" style="{{ btnGhost }}" onMouseEnter="{{ bgIn }}" onMouseLeave="{{ bgOut }}">GitHub</a>
+      <a href="#" style="{{ btnGhost }}" onMouseEnter="{{ bgIn }}" onMouseLeave="{{ bgOut }}">{{ t.bcv }}</a>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div style="position:relative;z-index:10;border-top:1px solid rgba(157,107,255,0.3);border-bottom:1px solid rgba(157,107,255,0.3);overflow:hidden;padding:14px 0;background:rgba(11,11,16,0.6)">
+    <div style="display:flex;width:max-content;animation:cyDrift 24s linear infinite;font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(16px,2.4vw,26px);letter-spacing:0.06em;color:#59f0c8">
+      <span style="padding-right:32px">{{ ticker }}</span><span style="padding-right:32px">{{ ticker }}</span>
+    </div>
+  </div>
+
+  <!-- ABOUT / MANIFESTO -->
+  <section id="about" style="position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:clamp(54px,8vw,100px) 26px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px;align-items:start">
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;color:rgba(215,219,224,0.45)">
+        <div style="color:#59f0c8;margin-bottom:6px">// 01_ABOUT</div>{{ t.aboutLabel }}
+      </div>
+      <div style="grid-column:span 2;min-width:0" data-reveal>
+        <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(26px,4vw,52px);line-height:1.06;color:#eef1f4;text-transform:uppercase">{{ t.aboutHead }}</h2>
+        <p style="margin-top:22px;font-size:clamp(15px,1.9vw,19px);line-height:1.6;color:rgba(215,219,224,0.74);max-width:680px">{{ t.aboutBody }}</p>
+        <div style="margin-top:30px;display:flex;flex-wrap:wrap;gap:1px;background:rgba(157,107,255,0.22);border:1px solid rgba(157,107,255,0.22)">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+            <div style="background:#0a0a0f;padding:16px 22px;min-width:140px;flex:1">
+              <div style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:32px;line-height:1;color:#59f0c8">{{ s.n }}</div>
+              <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(215,219,224,0.55);margin-top:8px">{{ s.l }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK SAMPLE -->
+  <section id="work" style="position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:clamp(20px,3vw,40px) 26px clamp(54px,8vw,100px)">
+    <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:34px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;color:#9d6bff">// 02_{{ t.workSub }}</span>
+      <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(30px,5vw,64px);letter-spacing:0.01em;color:#eef1f4">{{ t.workHead }}</h2>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <sc-for list="{{ works }}" as="w" hint-placeholder-count="3">
+        <a href="#" style="{{ cardBase }}" onMouseEnter="{{ cardIn }}" onMouseLeave="{{ cardOut }}">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;color:rgba(89,240,200,0.8)">
+            <span>{{ w.no }}</span><span>&#9656;</span>
+          </div>
+          <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(20px,2.6vw,28px);line-height:1.08;margin-top:18px;color:#eef1f4">{{ w.title }}</h3>
+          <p style="margin-top:12px;font-size:14px;line-height:1.5;color:rgba(215,219,224,0.62)">{{ w.body }}</p>
+          <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:7px">
+            <sc-for list="{{ w.tags }}" as="tag" hint-placeholder-count="3">
+              <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#9d6bff;border:1px solid rgba(157,107,255,0.4);padding:3px 8px">{{ tag }}</span>
+            </sc-for>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- STACK SAMPLE -->
+  <section id="stack" style="position:relative;z-index:10;border-top:1px solid rgba(157,107,255,0.25);background:rgba(10,10,15,0.5)">
+    <div style="max-width:1280px;margin:0 auto;padding:clamp(54px,8vw,100px) 26px">
+      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:30px">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;color:#59f0c8">// 03_STACK</span>
+        <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(28px,4.6vw,56px);color:#eef1f4">{{ t.stackHead }}</h2>
+      </div>
+      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:rgba(157,107,255,0.22);border:1px solid rgba(157,107,255,0.22)">
+        <sc-for list="{{ skills }}" as="sk" hint-placeholder-count="16">
+          <div style="background:#0a0a0f;padding:16px 14px;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.04em;color:#d7dbe0;transition:all .2s;cursor:default" onMouseEnter="{{ skIn }}" onMouseLeave="{{ skOut }}">{{ sk }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="exp" style="position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:clamp(54px,8vw,100px) 26px">
+    <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.2em;color:#9d6bff">// 04_EXPERIENCE</span>
+      <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(28px,4.6vw,56px);color:#eef1f4">{{ t.expHead }}</h2>
+    </div>
+    <sc-for list="{{ experience }}" as="x" hint-placeholder-count="3">
+      <div data-reveal style="display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:clamp(16px,3vw,40px);padding:clamp(20px,3vw,32px) 0;border-top:1px solid rgba(157,107,255,0.25)">
+        <div style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.08em;color:#59f0c8">{{ x.period }}</div>
+        <div>
+          <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(19px,2.6vw,28px);line-height:1.1;color:#eef1f4">{{ x.role }}</h3>
+          <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#9d6bff;margin-top:6px">{{ x.place }}</div>
+          <p style="margin-top:12px;font-size:14px;line-height:1.55;color:rgba(215,219,224,0.66);max-width:640px">{{ x.body }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="position:relative;z-index:10;border-top:1px solid rgba(89,240,200,0.4);background:rgba(8,8,12,0.7)">
+    <div style="max-width:1280px;margin:0 auto;padding:clamp(60px,10vw,120px) 26px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.22em;color:#59f0c8">// 05_{{ t.contactLabel }}</span>
+      <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(34px,8vw,110px);line-height:0.92;margin-top:16px;color:#eef1f4;white-space:pre-line;animation:cyGlitch 6s infinite">{{ t.contactHead }}</h2>
+      <p style="margin-top:20px;max-width:540px;font-size:clamp(15px,2vw,19px);line-height:1.5;color:rgba(215,219,224,0.7)">{{ t.contactBody }}</p>
+      <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px">
+        <a href="mailto:cezarbononi@gmail.com" style="{{ btnPrimary }}" onMouseEnter="{{ bpIn }}" onMouseLeave="{{ bpOut }}">cezarbononi@gmail.com</a>
+        <a href="index.dc.html" style="{{ btnGhost }}" onMouseEnter="{{ bgIn }}" onMouseLeave="{{ bgOut }}">&larr; {{ t.allConcepts }}</a>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: (typeof localStorage!=='undefined' && localStorage.getItem('cb_lang')) || 'pt' };
+  _revealed = new Set();
+  setLang(l){ try{ localStorage.setItem('cb_lang', l);}catch(e){} this.setState({lang:l}); }
+
+  componentDidMount(){
+    this._io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ this._show(en.target); this._revealed.add(en.target); this._io.unobserve(en.target);} });
+    },{threshold:0.12});
+    document.querySelectorAll('[data-reveal]').forEach(n=>{
+      n.style.opacity='0'; n.style.transform='translateY(28px)';
+      n.style.transition='opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)';
+      this._io.observe(n);
+    });
+  }
+  componentDidUpdate(){ this._revealed.forEach(n=>this._show(n)); }
+  _show(n){ n.style.opacity='1'; n.style.transform='none'; }
+
+  renderVals(){
+    const isPt = this.state.lang==='pt';
+    const C = {
+      pt:{ index:'INDEX', nAbout:'SOBRE', nWork:'PROJETOS', nStack:'STACK', nExp:'EXPERIÊNCIA', nContact:'CONTATO',
+        role:'SOFTWARE ENGINEER // CLOUD · AI · FRONTEND',
+        sub:'Cloud · Frontend Modernization · AI-assisted Development.',
+        manifesto:'> Sistemas que suportam pressão real de produção. IA é parte do workflow, não buzzword.',
+        bWork:'VER PROJETOS', bcv:'BAIXAR CV',
+        aboutLabel:'SOBRE / MANIFESTO',
+        aboutHead:'Eu modernizo frontends financeiros e workflows de engenharia.',
+        aboutBody:'IA não é buzzword no meu trabalho — ela faz parte do workflow de engenharia. Atuo conectando frontend, cloud, arquitetura, testes, UX/CX e restrições reais de produto. Engenharia moderna, técnica e autoral, com código que sobrevive em produção.',
+        workHead:'Projetos', workSub:'SELECTED_WORK', stackHead:'Stack', expHead:'Experiência',
+        contactLabel:'CONNECT', contactHead:'Vamos\nconstruir', contactBody:'Aberto a desafios de engenharia: produtos financeiros, modernização de frontend e workflows com IA.',
+        allConcepts:'TODOS OS CONCEITOS' },
+      en:{ index:'INDEX', nAbout:'ABOUT', nWork:'WORK', nStack:'STACK', nExp:'EXPERIENCE', nContact:'CONTACT',
+        role:'SOFTWARE ENGINEER // CLOUD · AI · FRONTEND',
+        sub:'Cloud · Frontend Modernization · AI-assisted Development.',
+        manifesto:'> Systems that survive real production pressure. AI is part of the workflow, not a buzzword.',
+        bWork:'VIEW WORK', bcv:'DOWNLOAD CV',
+        aboutLabel:'ABOUT / MANIFESTO',
+        aboutHead:'I modernize financial frontends and engineering workflows.',
+        aboutBody:'AI is not a buzzword here — it is part of the engineering workflow. I work across frontend, cloud, architecture, testing, UX/CX and product constraints. Modern, technical, authorial engineering, with code that survives production.',
+        workHead:'Work', workSub:'SELECTED_WORK', stackHead:'Stack', expHead:'Experience',
+        contactLabel:'CONNECT', contactHead:"Let's\nbuild", contactBody:'Open to engineering challenges: financial products, frontend modernization and AI-assisted workflows.',
+        allConcepts:'ALL CONCEPTS' }
+    };
+    const works = [
+      {no:'001', title:isPt?'Modernização Frontend Financeiro':'Financial Frontend Modernization', tags:['Angular','TypeScript','MFE'],
+        body:isPt?'Interface bancária de alto tráfego migrada para arquitetura Angular modular. Zero downtime.':'High-traffic banking interface migrated to modular Angular architecture. Zero downtime.'},
+      {no:'002', title:isPt?'Cloud Migration & CI/CD':'Cloud Migration & CI/CD', tags:['Azure','Docker','Actions'],
+        body:isPt?'Deploys legados na Azure com pipelines, Docker e gates automatizados. Releases sob demanda.':'Legacy deploys on Azure with pipelines, Docker and automated gates. On-demand releases.'},
+      {no:'003', title:isPt?'AI-assisted Workflow':'AI-assisted Workflow', tags:['AI','TDD','DX'],
+        body:isPt?'IA em code review, geração de testes e refactors. Velocidade mensurável, qualidade preservada.':'AI in code review, test generation and refactors. Measurable velocity, quality preserved.'},
+      {no:'004', title:isPt?'Self-hosted Infra Lab':'Self-hosted Infra Lab', tags:['Docker','Networking','Linux'],
+        body:isPt?'Cloud pessoal com serviços self-hosted, reverse proxies e monitoramento. Disciplina de produção no home lab.':'Personal cloud with self-hosted services, reverse proxies and monitoring. Production discipline in a home lab.'},
+      {no:'005', title:isPt?'Interactive PWA':'Interactive PWA', tags:['PWA','Performance','UX'],
+        body:isPt?'PWA offline-first com motion de sensação nativa, push e instalabilidade. O frontend no limite.':'Offline-first PWA with native-feel motion, push and installability. Frontend at the limit.'}
+    ];
+    const skills = ['Angular','React','TypeScript','JavaScript','Azure','Docker','GitHub Actions','Node.js','BFF','TDD','Clean Arch','Hexagonal','UX/CX','AI Tools','Git','CI/CD'];
+    const stats = [
+      {n:'7+', l:isPt?'ANOS DE ENG.':'YEARS ENG.'},
+      {n:'∞', l:isPt?'CAOS CONTROLADO':'CONTROLLED CHAOS'},
+      {n:'PT/EN', l:isPt?'BILÍNGUE':'BILINGUAL'}
+    ];
+    const experience = [
+      {period:'2022 — '+(isPt?'PRESENTE':'PRESENT'), role:isPt?'Engenheiro de Software — Produtos Financeiros':'Software Engineer — Financial Products', place:isPt?'SETOR FINANCEIRO · ALTA ESCALA':'FINANCIAL SECTOR · HIGH SCALE',
+        body:isPt?'Liderança técnica em modernização de frontend, migração para cloud e adoção de workflow com IA em aplicações financeiras de alta escala. Foco em arquitetura, testes e confiabilidade em produção.':'Technical lead on frontend modernization, cloud migration and AI workflow adoption across high-scale financial applications. Focus on architecture, testing and production reliability.'},
+      {period:'2019 — 2022', role:isPt?'Engenheiro Frontend — Web Corporativa':'Frontend Engineer — Enterprise Web', place:'ANGULAR · DESIGN SYSTEMS · BFF',
+        body:isPt?'Desenvolvimento de aplicações Angular de larga escala, design systems e camadas BFF, com forte foco em UX/CX e performance.':'Built large-scale Angular applications, design systems and BFF layers, with a strong focus on UX/CX and performance.'},
+      {period:isPt?'CONTÍNUO':'ONGOING', role:isPt?'Engenharia Independente & Labs':'Independent Engineering & Labs', place:'SELF-HOSTED · PWA · OPEN SOURCE',
+        body:isPt?'Experimentos pessoais em infraestrutura self-hosted, PWAs e ferramentas — onde o caos controlado vira prática.':'Personal experiments in self-hosted infrastructure, PWAs and tooling — where controlled chaos becomes practice.'}
+    ];
+    const btnPrimary='display:inline-flex;align-items:center;gap:8px;padding:13px 22px;background:linear-gradient(135deg,#9d6bff,#59f0c8);color:#060608;font-family:Space Mono,monospace;font-size:13px;font-weight:700;letter-spacing:0.06em;border-radius:2px;transition:filter .25s,transform .25s;cursor:pointer';
+    const btnGhost='display:inline-flex;align-items:center;gap:8px;padding:13px 20px;background:transparent;color:#d7dbe0;border:1px solid rgba(157,107,255,0.45);font-family:Space Mono,monospace;font-size:13px;letter-spacing:0.06em;border-radius:2px;transition:all .25s;cursor:pointer';
+    const cardBase='display:flex;flex-direction:column;padding:20px;background:#0a0a0f;border:1px solid rgba(157,107,255,0.25);border-radius:3px;cursor:pointer;transition:transform .3s,border-color .3s,box-shadow .3s';
+    const onBtn='padding:7px 11px;background:linear-gradient(135deg,#9d6bff,#59f0c8);color:#060608;font-weight:700;border:none;cursor:pointer;font-family:inherit;font-size:inherit;letter-spacing:inherit;white-space:nowrap';
+    const offBtn='padding:7px 11px;background:transparent;color:rgba(215,219,224,0.6);border:none;cursor:pointer;font-family:inherit;font-size:inherit;letter-spacing:inherit;white-space:nowrap';
+    return {
+      t:C[this.state.lang], works, skills, stats, experience,
+      ticker:'CONTROLLED CHAOS · SOFTWARE ENGINEER · CLOUD · AI WORKFLOW · ANGULAR · TYPESCRIPT · AZURE · DOCKER · CI/CD · ',
+      setPt:()=>this.setLang('pt'), setEn:()=>this.setLang('en'),
+      ptBtn:isPt?onBtn:offBtn, enBtn:isPt?offBtn:onBtn,
+      btnPrimary, btnGhost, cardBase,
+      bpIn:(e)=>{e.currentTarget.style.filter='brightness(1.15)';e.currentTarget.style.transform='translateY(-2px)';},
+      bpOut:(e)=>{e.currentTarget.style.filter='none';e.currentTarget.style.transform='none';},
+      bgIn:(e)=>{e.currentTarget.style.borderColor='#59f0c8';e.currentTarget.style.color='#59f0c8';},
+      bgOut:(e)=>{e.currentTarget.style.borderColor='rgba(157,107,255,0.45)';e.currentTarget.style.color='#d7dbe0';},
+      navIn:(e)=>{e.currentTarget.style.borderBottomColor='#59f0c8';e.currentTarget.style.color='#eef1f4';},
+      navOut:(e)=>{e.currentTarget.style.borderBottomColor='transparent';e.currentTarget.style.color='rgba(215,219,224,0.7)';},
+      cardIn:(e)=>{e.currentTarget.style.transform='translateY(-5px)';e.currentTarget.style.borderColor='#9d6bff';e.currentTarget.style.boxShadow='0 16px 40px -20px #9d6bff';},
+      cardOut:(e)=>{e.currentTarget.style.transform='none';e.currentTarget.style.borderColor='rgba(157,107,255,0.25)';e.currentTarget.style.boxShadow='none';},
+      skIn:(e)=>{e.currentTarget.style.background='#9d6bff';e.currentTarget.style.color='#060608';},
+      skOut:(e)=>{e.currentTarget.style.background='#0a0a0f';e.currentTarget.style.color='#d7dbe0';}
+    };
+  }
+}
+</script>
+</body>
+</html>
