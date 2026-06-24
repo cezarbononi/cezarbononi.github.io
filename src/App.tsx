@@ -1,4 +1,5 @@
 import About from "./components/About";
+import Academic from "./components/Academic";
 import BackgroundFX from "./components/BackgroundFX";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
@@ -20,6 +21,7 @@ export default function App() {
         <Work />
         <Stack />
         <Experience />
+        <Academic />
         <Contact />
       </main>
     </div>

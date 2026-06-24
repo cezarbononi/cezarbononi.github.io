@@ -570,6 +570,97 @@ button {
     box-shadow: 0 0 26px rgba(157, 107, 255, 0.18);
   }
 
+  .cy-academic-section {
+    box-shadow:
+      0 1px 0 rgba(89, 240, 200, 0.07) inset,
+      0 -1px 0 rgba(157, 107, 255, 0.08) inset;
+  }
+
+  .cy-academic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid rgba(157, 107, 255, 0.22);
+    background: rgba(157, 107, 255, 0.22);
+  }
+
+  .cy-academic-card {
+    position: relative;
+    min-height: 292px;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(238, 241, 244, 0.035), transparent 20%),
+      linear-gradient(135deg, rgba(89, 240, 200, 0.07), transparent 32%),
+      var(--panel);
+    padding: 18px;
+    transition:
+      background 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .cy-academic-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(90deg, rgba(89, 240, 200, 0.18), transparent 46%) top left / 100% 1px no-repeat,
+      linear-gradient(180deg, rgba(157, 107, 255, 0.18), transparent 50%) top left / 1px 100% no-repeat,
+      repeating-linear-gradient(
+        180deg,
+        rgba(238, 241, 244, 0.025) 0,
+        rgba(238, 241, 244, 0.025) 1px,
+        transparent 1px,
+        transparent 7px
+      );
+    opacity: 0.7;
+  }
+
+  .cy-academic-card::after {
+    content: "";
+    position: absolute;
+    right: -20%;
+    bottom: -35%;
+    z-index: 0;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(ellipse, rgba(89, 240, 200, 0.15), transparent 66%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .cy-academic-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cy-academic-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 0 0 1px rgba(89, 240, 200, 0.15) inset,
+      0 18px 44px -30px rgba(89, 240, 200, 0.55);
+  }
+
+  .cy-academic-card:hover::after {
+    opacity: 1;
+  }
+
+  .cy-academic-period {
+    display: inline-flex;
+    border: 1px solid rgba(89, 240, 200, 0.38);
+    background: rgba(89, 240, 200, 0.055);
+    padding: 5px 9px;
+    color: var(--accent-cyan);
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .cy-academic-body {
+    margin-top: 18px;
+  }
+
   .cy-marquee-track {
     display: flex;
     width: max-content;

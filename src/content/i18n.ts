@@ -19,6 +19,14 @@ export type ExperienceItem = {
   body: string;
 };
 
+export type AcademicItem = {
+  period: string;
+  institution: string;
+  degree: string;
+  focus: string;
+  tags: string[];
+};
+
 export type PortfolioCopy = {
   meta: {
     documentLang: string;
@@ -31,6 +39,7 @@ export type PortfolioCopy = {
       work: string;
       stack: string;
       experience: string;
+      academic: string;
       contact: string;
     };
   };
@@ -64,6 +73,11 @@ export type PortfolioCopy = {
     kicker: string;
     heading: string;
     items: ExperienceItem[];
+  };
+  academic: {
+    kicker: string;
+    heading: string;
+    items: AcademicItem[];
   };
   contact: {
     kicker: string;
@@ -105,6 +119,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
         work: "PROJETOS",
         stack: "STACK",
         experience: "EXPERIÊNCIA",
+        academic: "FORMAÇÃO",
         contact: "CONTATO",
       },
     },
@@ -205,8 +220,46 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
         },
       ],
     },
+    academic: {
+      kicker: "// 05_ACADEMIC_ARCHIVE",
+      heading: "Formação",
+      items: [
+        {
+          period: "FEV 2025 — DEZ 2026",
+          institution: "MBA USP/Esalq",
+          degree: "MBA, Computer Software Engineering",
+          focus:
+            "Especialização em engenharia de software com foco em arquitetura, qualidade, gestão técnica e construção de sistemas modernos.",
+          tags: ["Software Engineering", "Architecture", "Quality"],
+        },
+        {
+          period: "2019 — 2022",
+          institution: "Universidade Anhembi Morumbi",
+          degree: "Design Gráfico — Tecnólogo",
+          focus:
+            "Base visual para sistemas digitais: tipografia, identidade, metodologia projetual e construção de interfaces com mais intenção estética.",
+          tags: ["Design", "Typography", "Visual Systems"],
+        },
+        {
+          period: "2017 — 2019",
+          institution: "Universidade de São Paulo",
+          degree: "Geografia — Bacharelado",
+          focus:
+            "Leitura crítica de território, dados, contexto e complexidade. Um treino analítico que conversa diretamente com arquitetura de produto.",
+          tags: ["Research", "Systems Thinking", "Context"],
+        },
+        {
+          period: "2015 — 2017",
+          institution: "Universidade Federal de Alfenas",
+          degree: "Geografia — Bacharelado",
+          focus:
+            "Fundação acadêmica em análise espacial, investigação e interpretação de sistemas complexos antes da transição para tecnologia.",
+          tags: ["Analysis", "Method", "Complexity"],
+        },
+      ],
+    },
     contact: {
-      kicker: "// 05_CONNECT",
+      kicker: "// 06_CONNECT",
       heading: "Vamos\nconstruir",
       body:
         "Aberto a desafios de engenharia: produtos financeiros, modernização de frontend e workflows com IA.",
@@ -225,6 +278,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
         work: "WORK",
         stack: "STACK",
         experience: "EXPERIENCE",
+        academic: "ACADEMIC",
         contact: "CONTACT",
       },
     },
@@ -324,8 +378,46 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
         },
       ],
     },
+    academic: {
+      kicker: "// 05_ACADEMIC_ARCHIVE",
+      heading: "Academic",
+      items: [
+        {
+          period: "FEB 2025 — DEC 2026",
+          institution: "MBA USP/Esalq",
+          degree: "MBA, Computer Software Engineering",
+          focus:
+            "Graduate-level specialization in software engineering focused on architecture, quality, technical management and modern systems.",
+          tags: ["Software Engineering", "Architecture", "Quality"],
+        },
+        {
+          period: "2019 — 2022",
+          institution: "Anhembi Morumbi University",
+          degree: "Graphic Design — Technologist Degree",
+          focus:
+            "A visual foundation for digital systems: typography, identity, design methodology and more intentional interface work.",
+          tags: ["Design", "Typography", "Visual Systems"],
+        },
+        {
+          period: "2017 — 2019",
+          institution: "University of São Paulo",
+          degree: "Geography — Bachelor's Studies",
+          focus:
+            "Critical reading of territory, data, context and complexity. Analytical training that maps well to product architecture.",
+          tags: ["Research", "Systems Thinking", "Context"],
+        },
+        {
+          period: "2015 — 2017",
+          institution: "Federal University of Alfenas",
+          degree: "Geography — Bachelor's Studies",
+          focus:
+            "Academic foundation in spatial analysis, investigation and interpretation of complex systems before moving into technology.",
+          tags: ["Analysis", "Method", "Complexity"],
+        },
+      ],
+    },
     contact: {
-      kicker: "// 05_CONNECT",
+      kicker: "// 06_CONNECT",
       heading: "Let's\nbuild",
       body:
         "Open to engineering challenges: financial products, frontend modernization and AI-assisted workflows.",
