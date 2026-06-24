@@ -570,6 +570,282 @@ button {
     box-shadow: 0 0 26px rgba(157, 107, 255, 0.18);
   }
 
+  .cy-experience-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .cy-experience-card,
+  .cy-lab-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 38px);
+    overflow: hidden;
+    border: 1px solid rgba(157, 107, 255, 0.25);
+    border-radius: 3px;
+    background:
+      linear-gradient(180deg, rgba(238, 241, 244, 0.035), transparent 18%),
+      linear-gradient(135deg, rgba(89, 240, 200, 0.055), transparent 30%),
+      var(--panel);
+    padding: clamp(18px, 2.4vw, 26px);
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .cy-experience-card::before,
+  .cy-lab-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(90deg, rgba(89, 240, 200, 0.18), transparent 48%) top left / 100% 1px no-repeat,
+      linear-gradient(180deg, rgba(157, 107, 255, 0.18), transparent 52%) top left / 1px 100% no-repeat,
+      repeating-linear-gradient(
+        180deg,
+        rgba(238, 241, 244, 0.018) 0,
+        rgba(238, 241, 244, 0.018) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+    opacity: 0.75;
+  }
+
+  .cy-experience-card > *,
+  .cy-lab-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cy-experience-card:hover,
+  .cy-lab-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(89, 240, 200, 0.44);
+    box-shadow:
+      0 0 0 1px rgba(89, 240, 200, 0.1) inset,
+      0 18px 44px -30px rgba(89, 240, 200, 0.5);
+  }
+
+  .cy-experience-company {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 14px;
+    align-content: start;
+  }
+
+  .cy-experience-company h3,
+  .cy-lab-card h3 {
+    color: var(--text-strong);
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 700;
+    line-height: 0.98;
+    text-transform: uppercase;
+  }
+
+  .cy-experience-company p {
+    margin-top: 8px;
+    color: rgba(215, 219, 224, 0.58);
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    line-height: 1.55;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .cy-company-signal {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(89, 240, 200, 0.34);
+    background:
+      linear-gradient(135deg, rgba(89, 240, 200, 0.12), rgba(157, 107, 255, 0.08)),
+      rgba(6, 6, 8, 0.72);
+    box-shadow:
+      0 0 0 1px rgba(157, 107, 255, 0.18) inset,
+      0 0 26px -18px rgba(89, 240, 200, 0.8);
+    clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+  }
+
+  .cy-company-signal img {
+    display: block;
+    max-width: 34px;
+    max-height: 34px;
+    filter: grayscale(1) contrast(1.1) brightness(1.18);
+    mix-blend-mode: screen;
+    opacity: 0.72;
+    transition:
+      filter 0.25s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .cy-company-signal span {
+    color: rgba(238, 241, 244, 0.88);
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 14px rgba(89, 240, 200, 0.32);
+  }
+
+  .cy-experience-card:hover .cy-company-signal img,
+  .cy-lab-card:hover .cy-company-signal img {
+    filter: grayscale(1) contrast(1.25) brightness(1.35);
+    opacity: 0.95;
+    transform: translateY(-1px);
+  }
+
+  .cy-company-signal-compact {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cy-company-signal-compact span {
+    font-size: 11px;
+  }
+
+  .cy-experience-roles {
+    display: grid;
+    gap: 24px;
+  }
+
+  .cy-experience-roles article + article {
+    border-top: 1px solid rgba(157, 107, 255, 0.18);
+    padding-top: 22px;
+  }
+
+  .cy-experience-period {
+    color: var(--accent-cyan);
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cy-experience-roles h4,
+  .cy-early-career-item h4 {
+    margin-top: 7px;
+    color: var(--text-strong);
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(19px, 2.3vw, 26px);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .cy-experience-roles p,
+  .cy-early-career-item p,
+  .cy-lab-card p {
+    margin-top: 12px;
+    max-width: 760px;
+    color: rgba(215, 219, 224, 0.68);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .cy-project-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    border-top: 1px solid rgba(89, 240, 200, 0.16);
+    padding-top: 14px;
+  }
+
+  .cy-project-chips span {
+    border: 1px solid rgba(89, 240, 200, 0.28);
+    background: rgba(89, 240, 200, 0.04);
+    padding: 3px 8px;
+    color: rgba(89, 240, 200, 0.82);
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cy-early-career {
+    margin-top: 16px;
+  }
+
+  .cy-early-career-toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border: 1px solid rgba(157, 107, 255, 0.28);
+    border-radius: 2px;
+    background:
+      linear-gradient(90deg, rgba(157, 107, 255, 0.08), transparent),
+      rgba(10, 10, 15, 0.58);
+    padding: 14px 16px;
+    color: var(--text);
+    cursor: pointer;
+    transition:
+      border-color 0.25s ease,
+      color 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .cy-early-career-toggle span,
+  .cy-early-career-toggle strong {
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .cy-early-career-toggle span {
+    color: var(--accent-purple);
+  }
+
+  .cy-early-career-toggle strong {
+    color: rgba(215, 219, 224, 0.7);
+  }
+
+  .cy-early-career-toggle:hover,
+  .cy-early-career-toggle:focus-visible {
+    border-color: rgba(89, 240, 200, 0.48);
+    color: var(--accent-cyan);
+    outline: none;
+  }
+
+  .cy-early-career-list {
+    display: grid;
+    gap: 1px;
+    border: 1px solid rgba(157, 107, 255, 0.18);
+    border-top: 0;
+    background: rgba(157, 107, 255, 0.18);
+  }
+
+  .cy-early-career-item {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    background: rgba(10, 10, 15, 0.86);
+    padding: 16px;
+  }
+
+  .cy-early-company,
+  .cy-lab-place {
+    margin-top: 5px;
+    color: var(--accent-purple);
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cy-lab-card {
+    grid-template-columns: 48px minmax(0, 1fr);
+    margin-top: 16px;
+    border-color: rgba(89, 240, 200, 0.26);
+  }
+
   .cy-academic-section {
     box-shadow:
       0 1px 0 rgba(89, 240, 200, 0.07) inset,
@@ -895,6 +1171,19 @@ button {
     width: min(100%, 330px);
     margin-top: 4px;
   }
+
+  .cy-experience-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cy-experience-company {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .cy-company-signal {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -905,6 +1194,38 @@ button {
 
   .cy-work-card {
     min-height: auto;
+  }
+
+  .cy-experience-card,
+  .cy-lab-card {
+    padding: 16px;
+  }
+
+  .cy-experience-company h3,
+  .cy-lab-card h3 {
+    font-size: 24px;
+  }
+
+  .cy-project-chips,
+  .cy-experience-roles .mt-4,
+  .cy-early-career-item .mt-3,
+  .cy-lab-card .mt-4 {
+    gap: 6px;
+  }
+
+  .cy-early-career-toggle {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cy-early-career-item {
+    grid-template-columns: 34px minmax(0, 1fr);
+    padding: 14px;
+  }
+
+  .cy-company-signal-compact {
+    width: 34px;
+    height: 34px;
   }
 
   .cy-profile-reveal {

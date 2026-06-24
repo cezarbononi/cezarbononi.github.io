@@ -19,6 +19,46 @@ export type ExperienceItem = {
   body: string;
 };
 
+export type CompanySignal = {
+  alt: string;
+  initials: string;
+  src?: string;
+};
+
+export type ExperienceRoleItem = {
+  title: string;
+  period: string;
+  body: string;
+  tags: string[];
+};
+
+export type ExperienceCompanyItem = {
+  company: string;
+  type: string;
+  location: string;
+  signal: CompanySignal;
+  roles: ExperienceRoleItem[];
+  projects?: string[];
+};
+
+export type EarlyCareerItem = {
+  company: string;
+  role: string;
+  period: string;
+  body: string;
+  signal: CompanySignal;
+  tags: string[];
+};
+
+export type LabExperienceItem = {
+  period: string;
+  title: string;
+  place: string;
+  body: string;
+  signal: CompanySignal;
+  tags: string[];
+};
+
 export type AcademicItem = {
   period: string;
   institution: string;
@@ -72,7 +112,14 @@ export type PortfolioCopy = {
   experience: {
     kicker: string;
     heading: string;
-    items: ExperienceItem[];
+    featured: ExperienceCompanyItem[];
+    earlyCareer: {
+      label: string;
+      collapsedLabel: string;
+      expandedLabel: string;
+      items: EarlyCareerItem[];
+    };
+    lab: LabExperienceItem;
   };
   academic: {
     kicker: string;
@@ -196,29 +243,99 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
     experience: {
       kicker: "// 04_EXPERIENCE",
       heading: "Experiência",
-      items: [
+      featured: [
         {
-          period: "2022 — PRESENTE",
-          role: "Software Engineer — Produtos Financeiros",
-          place: "SETOR FINANCEIRO · ALTA ESCALA",
-          body:
-            "Liderança técnica em modernização de frontend, migração para cloud e adoção de workflow com IA em aplicações financeiras de alta escala. Foco em arquitetura, testes e confiabilidade em produção.",
+          company: "Bradesco",
+          type: "Tempo integral",
+          location: "São Paulo, Brasil · Híbrido",
+          signal: { alt: "Bradesco", initials: "B" },
+          projects: ["Frontend/BFF", "Azure Migration", "AI Workflow"],
+          roles: [
+            {
+              title:
+                "Software Engineer Cloud | Frontend/BFF & AI-assisted Engineering",
+              period: "FEV 2025 — PRESENTE",
+              body:
+                "Modernização e migração de aplicações Frontend/BFF para Azure, com foco em arquitetura, qualidade de código, automação, escalabilidade e redução de débito técnico.",
+              tags: ["Angular", "TypeScript", "Azure", "BFF", "Docker", "GitHub Actions", "CI/CD", "AI-assisted Engineering"],
+            },
+            {
+              title: "Frontend Developer | Angular, BFF & Azure Migration",
+              period: "SET 2023 — JUN 2025",
+              body:
+                "Atuação em projetos de migração e modernização de sistemas Frontend/BFF, evoluindo aplicações legadas, experiência do usuário e adaptação para ambientes cloud.",
+              tags: ["Angular", "TypeScript", "JavaScript", "Azure", "BFF", "APIs", "UX/UI", "Cloud Migration"],
+            },
+          ],
         },
         {
-          period: "2019 — 2022",
-          role: "Frontend Engineer — Web Corporativa",
-          place: "ANGULAR · DESIGN SYSTEMS · BFF",
-          body:
-            "Desenvolvimento de aplicações Angular de larga escala, design systems e camadas BFF, com forte foco em UX/CX e performance.",
+          company: "NTT DATA Europe & LATAM",
+          type: "Tempo integral",
+          location: "São Paulo, Brasil · Remoto",
+          signal: { alt: "NTT DATA Europe & LATAM", initials: "NTT" },
+          projects: ["Projeto: Itaú/Unibanco", "Internet Banking", "Mobile"],
+          roles: [
+            {
+              title: "Frontend Developer | Internet Banking & Mobile",
+              period: "JUN 2020 — AGO 2023",
+              body:
+                "Desenvolvimento frontend Angular em projetos de Internet Banking e Mobile, transformando requisitos financeiros complexos em interfaces digitais claras, funcionais e seguras.",
+              tags: ["Angular", "TypeScript", "JavaScript", "SCSS", "APIs", "Git", "TDD", "DDD", "Scrum", "Kanban"],
+            },
+          ],
         },
         {
-          period: "CONTÍNUO",
-          role: "Engenharia Independente & Labs",
-          place: "SELF-HOSTED · PWA · OPEN SOURCE",
-          body:
-            "Experimentos pessoais em infraestrutura self-hosted, PWAs e ferramentas, onde o caos controlado vira prática.",
+          company: "Qintess",
+          type: "Tempo integral",
+          location: "São Paulo, Brasil · No local",
+          signal: { alt: "Qintess", initials: "Q" },
+          projects: ["Projetos: Itaú/Unibanco", "Banco Original"],
+          roles: [
+            {
+              title: "Frontend Developer",
+              period: "JUN 2019 — JUN 2020",
+              body:
+                "Desenvolvimento de aplicações financeiras com foco em usabilidade, fluxos bancários, prototipação, integração com APIs e qualidade de entrega.",
+              tags: ["Angular", "TypeScript", "JavaScript", "HTML5", "CSS3", "UX Research", "UI/UX", "Prototyping", "TDD", "DDD"],
+            },
+          ],
+        },
+        {
+          company: "Indra",
+          type: "Tempo integral",
+          location: "São Paulo, Brasil · No local",
+          signal: { alt: "Indra", initials: "IN" },
+          projects: ["Projeto: Santander Geração Digital", "FIRST"],
+          roles: [
+            {
+              title: "Frontend Developer",
+              period: "JUL 2018 — JUL 2019",
+              body:
+                "Construção de interfaces Angular para soluções financeiras, visualização de dados, monitoramento e suporte a aplicações em produção.",
+              tags: ["Angular", "TypeScript", "JavaScript", "SCSS", "APIs", "Git", "TDD", "Scrum", "Dynatrace", "Data Visualization"],
+            },
+          ],
         },
       ],
+      earlyCareer: {
+        label: "EARLY CAREER",
+        collapsedLabel: "VER PRIMEIRAS EXPERIÊNCIAS",
+        expandedLabel: "OCULTAR PRIMEIRAS EXPERIÊNCIAS",
+        items: [
+          { company: "Tech Viking - IT Consultancy", role: "Frontend Developer", period: "JAN 2015 — JUN 2018", body: "Desenvolvimento de interfaces web responsivas para pequenas e médias empresas, com autonomia, adaptação ao contexto do cliente e foco em valor operacional.", signal: { alt: "Tech Viking - IT Consultancy", initials: "TV" }, tags: ["Angular", "JavaScript", "HTML5", "CSS3", "Responsive UI"] },
+          { company: "DWS", role: "Frontend Developer", period: "JAN 2014 — JUN 2015", body: "Aplicações web para visualização de câmeras IP e analógicas, personalização visual e adequação das interfaces às necessidades dos clientes.", signal: { alt: "DWS", initials: "DWS" }, tags: ["Frontend", "JavaScript", "Node.js", "Video Monitoring"] },
+          { company: "Zignet", role: "Analista de Suporte de TI", period: "SET 2012 — DEZ 2013", body: "Suporte e operação de sistemas de internet via rádio, infraestrutura de rede, servidores, técnicos de campo e atendimento ao consumidor final.", signal: { alt: "Zignet", initials: "ZG" }, tags: ["Redes", "Infraestrutura", "Suporte Técnico", "Servidores"] },
+          { company: "Masterponto Equipamentos e Sistemas", role: "Analista de Suporte de TI", period: "JAN 2011 — AGO 2012", body: "Suporte técnico remoto e presencial, manutenção de dispositivos eletroeletrônicos e treinamentos para soluções de ponto eletrônico e segurança.", signal: { alt: "Masterponto Equipamentos e Sistemas", initials: "MP" }, tags: ["Suporte Técnico", "Manutenção", "Treinamento", "Acesso Remoto"] },
+        ],
+      },
+      lab: {
+        period: "CONTÍNUO",
+        title: "Engenharia Independente & Labs",
+        place: "SELF-HOSTED · PWA · OPEN SOURCE",
+        body: "Experimentos pessoais em infraestrutura self-hosted, PWAs e ferramentas, onde o caos controlado vira prática.",
+        signal: { alt: "Independent Engineering Labs", initials: "LAB" },
+        tags: ["Self-hosted", "PWA", "Docker", "Linux", "Open Source"],
+      },
     },
     academic: {
       kicker: "// 05_ACADEMIC_ARCHIVE",
@@ -354,29 +471,68 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
     experience: {
       kicker: "// 04_EXPERIENCE",
       heading: "Experience",
-      items: [
+      featured: [
         {
-          period: "2022 — PRESENT",
-          role: "Software Engineer — Financial Products",
-          place: "FINANCIAL SECTOR · HIGH SCALE",
-          body:
-            "Technical lead on frontend modernization, cloud migration and AI workflow adoption across high-scale financial applications. Focus on architecture, testing and production reliability.",
+          company: "Bradesco",
+          type: "Full-time",
+          location: "São Paulo, Brazil · Hybrid",
+          signal: { alt: "Bradesco", initials: "B" },
+          projects: ["Frontend/BFF", "Azure Migration", "AI Workflow"],
+          roles: [
+            { title: "Software Engineer Cloud | Frontend/BFF & AI-assisted Engineering", period: "FEB 2025 — PRESENT", body: "Modernizing and migrating Frontend/BFF applications to Azure, with focus on architecture, code quality, automation, scalability and technical debt reduction.", tags: ["Angular", "TypeScript", "Azure", "BFF", "Docker", "GitHub Actions", "CI/CD", "AI-assisted Engineering"] },
+            { title: "Frontend Developer | Angular, BFF & Azure Migration", period: "SEP 2023 — JUN 2025", body: "Worked on Frontend/BFF migration and modernization initiatives, evolving legacy applications, user experience and cloud-ready solutions.", tags: ["Angular", "TypeScript", "JavaScript", "Azure", "BFF", "APIs", "UX/UI", "Cloud Migration"] },
+          ],
         },
         {
-          period: "2019 — 2022",
-          role: "Frontend Engineer — Enterprise Web",
-          place: "ANGULAR · DESIGN SYSTEMS · BFF",
-          body:
-            "Built large-scale Angular applications, design systems and BFF layers, with a strong focus on UX/CX and performance.",
+          company: "NTT DATA Europe & LATAM",
+          type: "Full-time",
+          location: "São Paulo, Brazil · Remote",
+          signal: { alt: "NTT DATA Europe & LATAM", initials: "NTT" },
+          projects: ["Project: Itaú/Unibanco", "Internet Banking", "Mobile"],
+          roles: [
+            { title: "Frontend Developer | Internet Banking & Mobile", period: "JUN 2020 — AUG 2023", body: "Angular frontend development for Internet Banking and Mobile projects, turning complex financial requirements into clear, functional and secure digital interfaces.", tags: ["Angular", "TypeScript", "JavaScript", "SCSS", "APIs", "Git", "TDD", "DDD", "Scrum", "Kanban"] },
+          ],
         },
         {
-          period: "ONGOING",
-          role: "Independent Engineering & Labs",
-          place: "SELF-HOSTED · PWA · OPEN SOURCE",
-          body:
-            "Personal experiments in self-hosted infrastructure, PWAs and tooling, where controlled chaos becomes practice.",
+          company: "Qintess",
+          type: "Full-time",
+          location: "São Paulo, Brazil · On-site",
+          signal: { alt: "Qintess", initials: "Q" },
+          projects: ["Projects: Itaú/Unibanco", "Banco Original"],
+          roles: [
+            { title: "Frontend Developer", period: "JUN 2019 — JUN 2020", body: "Built financial applications focused on usability, banking flows, prototyping, API integration and delivery quality.", tags: ["Angular", "TypeScript", "JavaScript", "HTML5", "CSS3", "UX Research", "UI/UX", "Prototyping", "TDD", "DDD"] },
+          ],
+        },
+        {
+          company: "Indra",
+          type: "Full-time",
+          location: "São Paulo, Brazil · On-site",
+          signal: { alt: "Indra", initials: "IN" },
+          projects: ["Project: Santander Geração Digital", "FIRST"],
+          roles: [
+            { title: "Frontend Developer", period: "JUL 2018 — JUL 2019", body: "Built Angular interfaces for financial solutions, data visualization, monitoring and production application support.", tags: ["Angular", "TypeScript", "JavaScript", "SCSS", "APIs", "Git", "TDD", "Scrum", "Dynatrace", "Data Visualization"] },
+          ],
         },
       ],
+      earlyCareer: {
+        label: "EARLY CAREER",
+        collapsedLabel: "VIEW EARLY CAREER",
+        expandedLabel: "HIDE EARLY CAREER",
+        items: [
+          { company: "Tech Viking - IT Consultancy", role: "Frontend Developer", period: "JAN 2015 — JUN 2018", body: "Responsive web interface development for small and mid-sized companies, with autonomy, client context adaptation and operational value focus.", signal: { alt: "Tech Viking - IT Consultancy", initials: "TV" }, tags: ["Angular", "JavaScript", "HTML5", "CSS3", "Responsive UI"] },
+          { company: "DWS", role: "Frontend Developer", period: "JAN 2014 — JUN 2015", body: "Web applications for IP and analog camera visualization, visual customization and interface adaptation to client needs.", signal: { alt: "DWS", initials: "DWS" }, tags: ["Frontend", "JavaScript", "Node.js", "Video Monitoring"] },
+          { company: "Zignet", role: "IT Support Analyst", period: "SEP 2012 — DEC 2013", body: "Support and operation of radio internet systems, network infrastructure, servers, field technicians and end-customer service.", signal: { alt: "Zignet", initials: "ZG" }, tags: ["Networking", "Infrastructure", "Technical Support", "Servers"] },
+          { company: "Masterponto Equipamentos e Sistemas", role: "IT Support Analyst", period: "JAN 2011 — AUG 2012", body: "Remote and on-site technical support, maintenance of electronic devices and customer training for time-tracking and electronic security solutions.", signal: { alt: "Masterponto Equipamentos e Sistemas", initials: "MP" }, tags: ["Technical Support", "Maintenance", "Training", "Remote Access"] },
+        ],
+      },
+      lab: {
+        period: "ONGOING",
+        title: "Independent Engineering & Labs",
+        place: "SELF-HOSTED · PWA · OPEN SOURCE",
+        body: "Personal experiments in self-hosted infrastructure, PWAs and tooling, where controlled chaos becomes practice.",
+        signal: { alt: "Independent Engineering Labs", initials: "LAB" },
+        tags: ["Self-hosted", "PWA", "Docker", "Linux", "Open Source"],
+      },
     },
     academic: {
       kicker: "// 05_ACADEMIC_ARCHIVE",
