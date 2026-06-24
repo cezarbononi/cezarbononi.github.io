@@ -10,7 +10,7 @@ export default function Stack() {
       className="relative z-10 border-t border-cyber-purple/25 bg-[rgba(10,10,15,0.5)]"
     >
       <div className="cy-container py-[clamp(54px,8vw,100px)]">
-        <div className="mb-[30px] flex flex-wrap items-baseline gap-4">
+        <div className="mb-[30px] flex flex-wrap items-center gap-[clamp(18px,2.6vw,30px)]">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-cyber-cyan">
             {content.stack.kicker}
           </span>

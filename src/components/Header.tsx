@@ -8,6 +8,7 @@ export default function Header() {
     { href: "#work", label: content.header.nav.work },
     { href: "#stack", label: content.header.nav.stack },
     { href: "#exp", label: content.header.nav.experience },
+    { href: "#academic", label: content.header.nav.academic },
     { href: "#contact", label: content.header.nav.contact },
   ];
 

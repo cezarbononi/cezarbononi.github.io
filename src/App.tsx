@@ -1,4 +1,6 @@
 import About from "./components/About";
+import Academic from "./components/Academic";
+import AIWorkflow from "./components/AIWorkflow";
 import BackgroundFX from "./components/BackgroundFX";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
@@ -19,7 +21,9 @@ export default function App() {
         <About />
         <Work />
         <Stack />
+        <AIWorkflow />
         <Experience />
+        <Academic />
         <Contact />
       </main>
     </div>
