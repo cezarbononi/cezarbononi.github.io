@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import ProfileHud from "./ProfileHud";
+import { contactLinks } from "../content/links";
 import { useLanguage } from "../hooks/useLanguage";
 
 export default function Hero() {
@@ -50,7 +51,7 @@ export default function Hero() {
           <a
             href="https://www.linkedin.com/in/cezar-bononi/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="cy-btn-ghost"
           >
             LinkedIn
@@ -58,7 +59,7 @@ export default function Hero() {
           <a
             href="https://github.com/cezarbononi"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="cy-btn-ghost"
           >
             GitHub
@@ -70,6 +71,15 @@ export default function Hero() {
             onClick={(event) => event.preventDefault()}
           >
             {content.hero.cvButton}
+          </a>
+          <a
+            href={contactLinks.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cy-btn-ghost"
+            aria-label={content.hero.whatsappButton}
+          >
+            {content.hero.whatsappButton}
           </a>
         </Reveal>
       </div>
