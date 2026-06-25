@@ -9,8 +9,15 @@ import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import Stack from "./components/Stack";
 import Work from "./components/Work";
+import CVPage from "./pages/CV";
 
 export default function App() {
+  const path = window.location.pathname.replace(/\/$/, "") || "/";
+
+  if (path === "/cv") {
+    return <CVPage />;
+  }
+
   return (
     <div id="top" className="cy-shell">
       <BackgroundFX />

@@ -4,7 +4,7 @@ import { contactLinks } from "../content/links";
 import { useLanguage } from "../hooks/useLanguage";
 
 export default function Hero() {
-  const { content } = useLanguage();
+  const { content, lang } = useLanguage();
 
   return (
     <section className="cy-hero-frame relative z-10 mx-auto max-w-cyber px-[26px] pb-[30px] pt-[clamp(34px,7vw,80px)]">
@@ -65,10 +65,9 @@ export default function Hero() {
             GitHub
           </a>
           <a
-            href="#"
+            href={`/cv?lang=${lang}`}
             className="cy-btn-ghost"
             title={content.hero.cvTitle}
-            onClick={(event) => event.preventDefault()}
           >
             {content.hero.cvButton}
           </a>
