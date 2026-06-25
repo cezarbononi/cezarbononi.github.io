@@ -13,6 +13,7 @@ Positioning:
 - TypeScript
 - Tailwind CSS
 - Framer Motion
+- Playwright for CV PDF generation
 
 ## Requirements
 
@@ -32,6 +33,34 @@ npm run dev
 ```
 
 The app runs locally through Vite. The default language is `PT-BR`; manual language selection is persisted in `localStorage` with the key `cb_lang`.
+
+CV routes:
+
+- `http://localhost:5173/cv?lang=pt`
+- `http://localhost:5173/cv?lang=en`
+
+## CV PDF Generation
+
+The CV page uses the same visual identity as the portfolio in a controlled A4 print layout.
+
+Generate both PDFs:
+
+```bash
+npm run generate:cv
+```
+
+Generated files:
+
+- `public/cv/cezar-bononi-cv-pt-br.pdf`
+- `public/cv/cezar-bononi-cv-en-us.pdf`
+
+The script starts a temporary Vite server on `127.0.0.1:4173`, uses Playwright to print `/cv?lang=pt` and `/cv?lang=en` in A4, and keeps text selectable in the PDFs.
+
+If Playwright browsers are missing after a fresh install, run:
+
+```bash
+npx playwright install chromium
+```
 
 ## Production Build
 

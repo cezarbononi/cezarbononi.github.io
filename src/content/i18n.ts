@@ -210,7 +210,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       workButton: "VER PROJETOS",
       cvButton: "BAIXAR CV",
       whatsappButton: "WHATSAPP",
-      cvTitle: "CV em breve",
+      cvTitle: "Abrir CV",
     },
     marquee:
       "CONTROLLED CHAOS · SOFTWARE ENGINEER · CLOUD · AI WORKFLOW · ANGULAR · TYPESCRIPT · AZURE · DOCKER · CI/CD ·",
@@ -497,7 +497,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       workButton: "VIEW WORK",
       cvButton: "DOWNLOAD CV",
       whatsappButton: "WHATSAPP",
-      cvTitle: "CV coming soon",
+      cvTitle: "Open CV",
     },
     marquee:
       "CONTROLLED CHAOS · SOFTWARE ENGINEER · CLOUD · AI WORKFLOW · ANGULAR · TYPESCRIPT · AZURE · DOCKER · CI/CD ·",
