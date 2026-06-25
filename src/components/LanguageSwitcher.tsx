@@ -11,8 +11,9 @@ export default function LanguageSwitcher() {
 
   return (
     <div
-      className="flex overflow-hidden rounded-[2px] border border-cyber-purple/40 font-mono text-xs tracking-[0.08em]"
-      aria-label="Language"
+      className="cy-lang-switcher flex overflow-hidden rounded-[2px] border border-cyber-purple/40 font-mono text-xs tracking-[0.08em]"
+      role="group"
+      aria-label="Language selection"
     >
       {options.map((option) => {
         const active = lang === option.value;
@@ -26,6 +27,7 @@ export default function LanguageSwitcher() {
                 ? "bg-gradient-to-br from-cyber-purple to-cyber-cyan font-bold text-cyber-bg"
                 : "text-cyber-text/60 hover:text-cyber-cyan"
             }`}
+            aria-label={`Switch language to ${option.label}`}
             aria-pressed={active}
             onClick={() => setLanguage(option.value)}
           >

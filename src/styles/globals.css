@@ -55,6 +55,11 @@ button {
   color: var(--bg);
 }
 
+:where(a, button):focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 4px;
+}
+
 #root {
   min-height: 100vh;
 }
@@ -391,7 +396,16 @@ button {
   .cy-nav-link:focus-visible {
     border-bottom-color: var(--accent-cyan);
     color: var(--text-strong);
-    outline: none;
+    outline: 2px solid transparent;
+    text-shadow: 0 0 14px rgba(89, 240, 200, 0.32);
+  }
+
+  .cy-lang-switcher button:focus-visible {
+    position: relative;
+    z-index: 1;
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: -2px;
+    box-shadow: 0 0 18px rgba(89, 240, 200, 0.24);
   }
 
   .cy-btn-primary,
@@ -427,7 +441,8 @@ button {
   .cy-btn-primary:focus-visible {
     filter: brightness(1.15);
     transform: translateY(-2px);
-    outline: none;
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 4px;
   }
 
   .cy-btn-ghost {
@@ -441,7 +456,22 @@ button {
   .cy-btn-ghost:focus-visible {
     border-color: var(--accent-cyan);
     color: var(--accent-cyan);
-    outline: none;
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 4px;
+    box-shadow:
+      0 0 0 1px rgba(89, 240, 200, 0.08) inset,
+      0 0 28px -20px rgba(89, 240, 200, 0.8);
+  }
+
+  .cy-copy-feedback {
+    min-height: 22px;
+    margin-top: 14px;
+    color: var(--accent-cyan);
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: 0 0 18px rgba(89, 240, 200, 0.34);
   }
 
   .cy-work-card {
@@ -506,7 +536,8 @@ button {
       0 0 0 1px rgba(89, 240, 200, 0.12) inset,
       0 16px 40px -20px var(--accent-purple),
       0 0 38px -28px var(--accent-cyan);
-    outline: none;
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 4px;
   }
 
   .cy-work-card:hover::before,
@@ -1020,7 +1051,9 @@ button {
   .cy-early-career-toggle:focus-visible {
     border-color: rgba(89, 240, 200, 0.48);
     color: var(--accent-cyan);
-    outline: none;
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 4px;
+    box-shadow: 0 0 30px -22px rgba(89, 240, 200, 0.78);
   }
 
   .cy-early-career-list {

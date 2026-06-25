@@ -20,11 +20,9 @@ export default function Work() {
 
       <Reveal className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
         {content.work.items.map((work) => (
-          <a
+          <article
             key={work.no}
-            href="#"
             className="cy-work-card"
-            onClick={(event) => event.preventDefault()}
           >
             <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.12em] text-cyber-cyan/80">
               <span>{work.no}</span>
@@ -43,7 +41,7 @@ export default function Work() {
                 </span>
               ))}
             </div>
-          </a>
+          </article>
         ))}
       </Reveal>
     </section>

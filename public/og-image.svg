@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Cezar Bononi - Software Engineer">
+  <defs>
+    <linearGradient id="chrome" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#9d6bff"/>
+      <stop offset=".52" stop-color="#59f0c8"/>
+      <stop offset="1" stop-color="#ff3ea5"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx=".18" cy=".22" r=".62">
+      <stop stop-color="#59f0c8" stop-opacity=".34"/>
+      <stop offset=".58" stop-color="#59f0c8" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#59f0c8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="purpleGlow" cx=".82" cy=".72" r=".62">
+      <stop stop-color="#9d6bff" stop-opacity=".34"/>
+      <stop offset=".58" stop-color="#9d6bff" stop-opacity=".07"/>
+      <stop offset="1" stop-color="#9d6bff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0v42" fill="none" stroke="#9d6bff" stroke-opacity=".16" stroke-width="1"/>
+    </pattern>
+    <pattern id="scan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 0h8v1H0z" fill="#eef1f4" opacity=".06"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#060608"/>
+  <rect width="1200" height="630" fill="url(#cyanGlow)"/>
+  <rect width="1200" height="630" fill="url(#purpleGlow)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity=".74"/>
+  <rect width="1200" height="630" fill="url(#scan)" opacity=".72"/>
+  <path d="M70 72h836l78 78v408H180L70 448Z" fill="#0a0a0f" fill-opacity=".78" stroke="url(#chrome)" stroke-width="2"/>
+  <path d="M92 94h784M92 536h734M94 96v338M984 152v384" fill="none" stroke="#59f0c8" stroke-opacity=".42" stroke-width="1"/>
+  <text x="104" y="142" fill="#59f0c8" font-family="monospace" font-size="22" letter-spacing="5">PROFILE://CEZAR_BONONI</text>
+  <text x="104" y="300" fill="#eef1f4" font-family="Arial Black, Impact, sans-serif" font-size="92" letter-spacing="1">CEZAR BONONI</text>
+  <text x="108" y="372" fill="#d7dbe0" font-family="monospace" font-size="30" letter-spacing="2">Software Engineer | Cloud, Frontend Modernization</text>
+  <text x="108" y="420" fill="#d7dbe0" font-family="monospace" font-size="30" letter-spacing="2">&amp; AI-assisted Development</text>
+  <text x="106" y="498" fill="#9d6bff" font-family="monospace" font-size="22" letter-spacing="4">CONTROLLED CHAOS · CYBER MAXIMALIST · BUILD 2026</text>
+  <g transform="translate(930 94)">
+    <path d="M0 0h154l42 42v154H42L0 154Z" fill="#060608" stroke="#59f0c8" stroke-opacity=".75" stroke-width="2"/>
+    <text x="34" y="116" fill="#59f0c8" font-family="monospace" font-size="64" font-weight="700">CB</text>
+    <path d="M18 178h160" stroke="#ff3ea5" stroke-width="4" opacity=".78"/>
+  </g>
+</svg>

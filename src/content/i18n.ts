@@ -1,3 +1,8 @@
+import bradescoLogo from "../assets/logos/bradesco.png";
+import indraLogo from "../assets/logos/indra.png";
+import nttDataLogo from "../assets/logos/nttdata.png";
+import qintessLogo from "../assets/logos/qintess.png";
+
 export type Language = "pt" | "en";
 
 export type WorkItem = {
@@ -101,6 +106,7 @@ export type PortfolioCopy = {
     manifesto: string;
     workButton: string;
     cvButton: string;
+    whatsappButton: string;
     cvTitle: string;
   };
   marquee: string;
@@ -150,6 +156,11 @@ export type PortfolioCopy = {
     kicker: string;
     heading: string;
     body: string;
+    email: string;
+    copyEmail: string;
+    whatsappButton: string;
+    copiedEmail: string;
+    copyFailed: string;
     topButton: string;
   };
 };
@@ -177,7 +188,8 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
   pt: {
     meta: {
       documentLang: "pt-BR",
-      title: "Cezar Bononi | Software Engineer",
+      title:
+        "Cezar Bononi | Software Engineer | Cloud, Frontend Modernization & AI-assisted Development",
     },
     header: {
       index: "INDEX",
@@ -197,6 +209,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
         "> Sistemas que suportam pressão real de produção. IA é parte do workflow, não buzzword.",
       workButton: "VER PROJETOS",
       cvButton: "BAIXAR CV",
+      whatsappButton: "WHATSAPP",
       cvTitle: "CV em breve",
     },
     marquee:
@@ -319,7 +332,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           company: "Bradesco",
           type: "Tempo integral",
           location: "São Paulo, Brasil · Híbrido",
-          signal: { alt: "Bradesco", initials: "B" },
+          signal: { alt: "Bradesco", initials: "B", src: bradescoLogo },
           projects: ["Frontend/BFF", "Azure Migration", "AI Workflow"],
           roles: [
             {
@@ -343,7 +356,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           company: "NTT DATA Europe & LATAM",
           type: "Tempo integral",
           location: "São Paulo, Brasil · Remoto",
-          signal: { alt: "NTT DATA Europe & LATAM", initials: "NTT" },
+          signal: { alt: "NTT DATA Europe & LATAM", initials: "NTT", src: nttDataLogo },
           projects: ["Projeto: Itaú/Unibanco", "Internet Banking", "Mobile"],
           roles: [
             {
@@ -359,7 +372,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           company: "Qintess",
           type: "Tempo integral",
           location: "São Paulo, Brasil · No local",
-          signal: { alt: "Qintess", initials: "Q" },
+          signal: { alt: "Qintess", initials: "Q", src: qintessLogo },
           projects: ["Projetos: Itaú/Unibanco", "Banco Original"],
           roles: [
             {
@@ -375,7 +388,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           company: "Indra",
           type: "Tempo integral",
           location: "São Paulo, Brasil · No local",
-          signal: { alt: "Indra", initials: "IN" },
+          signal: { alt: "Indra", initials: "IN", src: indraLogo },
           projects: ["Projeto: Santander Geração Digital", "FIRST"],
           roles: [
             {
@@ -451,13 +464,19 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       heading: "Vamos\nconstruir",
       body:
         "Aberto a desafios de engenharia: produtos financeiros, modernização de frontend e workflows com IA.",
+      email: "cezarbononi@gmail.com",
+      copyEmail: "COPIAR E-MAIL",
+      whatsappButton: "WHATSAPP",
+      copiedEmail: "E-mail copiado",
+      copyFailed: "Copie manualmente",
       topButton: "VOLTAR AO TOPO",
     },
   },
   en: {
     meta: {
       documentLang: "en-US",
-      title: "Cezar Bononi | Software Engineer",
+      title:
+        "Cezar Bononi | Software Engineer | Cloud, Frontend Modernization & AI-assisted Development",
     },
     header: {
       index: "INDEX",
@@ -477,6 +496,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
         "> Systems that survive real production pressure. AI is part of the workflow, not a buzzword.",
       workButton: "VIEW WORK",
       cvButton: "DOWNLOAD CV",
+      whatsappButton: "WHATSAPP",
       cvTitle: "CV coming soon",
     },
     marquee:
@@ -598,7 +618,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           company: "Bradesco",
           type: "Full-time",
           location: "São Paulo, Brazil · Hybrid",
-          signal: { alt: "Bradesco", initials: "B" },
+          signal: { alt: "Bradesco", initials: "B", src: bradescoLogo },
           projects: ["Frontend/BFF", "Azure Migration", "AI Workflow"],
           roles: [
             { title: "Software Engineer Cloud | Frontend/BFF & AI-assisted Engineering", period: "FEB 2025 — PRESENT", body: "Modernizing and migrating Frontend/BFF applications to Azure, with focus on architecture, code quality, automation, scalability and technical debt reduction.", tags: ["Angular", "TypeScript", "Azure", "BFF", "Docker", "GitHub Actions", "CI/CD", "AI-assisted Engineering"] },
@@ -609,7 +629,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           company: "NTT DATA Europe & LATAM",
           type: "Full-time",
           location: "São Paulo, Brazil · Remote",
-          signal: { alt: "NTT DATA Europe & LATAM", initials: "NTT" },
+          signal: { alt: "NTT DATA Europe & LATAM", initials: "NTT", src: nttDataLogo },
           projects: ["Project: Itaú/Unibanco", "Internet Banking", "Mobile"],
           roles: [
             { title: "Frontend Developer | Internet Banking & Mobile", period: "JUN 2020 — AUG 2023", body: "Angular frontend development for Internet Banking and Mobile projects, turning complex financial requirements into clear, functional and secure digital interfaces.", tags: ["Angular", "TypeScript", "JavaScript", "SCSS", "APIs", "Git", "TDD", "DDD", "Scrum", "Kanban"] },
@@ -619,7 +639,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           company: "Qintess",
           type: "Full-time",
           location: "São Paulo, Brazil · On-site",
-          signal: { alt: "Qintess", initials: "Q" },
+          signal: { alt: "Qintess", initials: "Q", src: qintessLogo },
           projects: ["Projects: Itaú/Unibanco", "Banco Original"],
           roles: [
             { title: "Frontend Developer", period: "JUN 2019 — JUN 2020", body: "Built financial applications focused on usability, banking flows, prototyping, API integration and delivery quality.", tags: ["Angular", "TypeScript", "JavaScript", "HTML5", "CSS3", "UX Research", "UI/UX", "Prototyping", "TDD", "DDD"] },
@@ -629,7 +649,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           company: "Indra",
           type: "Full-time",
           location: "São Paulo, Brazil · On-site",
-          signal: { alt: "Indra", initials: "IN" },
+          signal: { alt: "Indra", initials: "IN", src: indraLogo },
           projects: ["Project: Santander Geração Digital", "FIRST"],
           roles: [
             { title: "Frontend Developer", period: "JUL 2018 — JUL 2019", body: "Built Angular interfaces for financial solutions, data visualization, monitoring and production application support.", tags: ["Angular", "TypeScript", "JavaScript", "SCSS", "APIs", "Git", "TDD", "Scrum", "Dynatrace", "Data Visualization"] },
@@ -699,6 +719,11 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       heading: "Let's\nbuild",
       body:
         "Open to engineering challenges: financial products, frontend modernization and AI-assisted workflows.",
+      email: "cezarbononi@gmail.com",
+      copyEmail: "COPY EMAIL",
+      whatsappButton: "WHATSAPP",
+      copiedEmail: "Email copied",
+      copyFailed: "Copy manually",
       topButton: "BACK TO TOP",
     },
   },
