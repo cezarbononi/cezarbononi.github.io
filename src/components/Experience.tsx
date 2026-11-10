@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ScrambleText from "./ScrambleText";
 import Reveal from "./Reveal";
 import { type CompanySignal } from "../content/i18n";
 import { useLanguage } from "../hooks/useLanguage";
@@ -32,7 +33,7 @@ export default function Experience() {
             {content.experience.kicker}
           </span>
           <h2 className="cy-section-title text-[clamp(28px,4.6vw,56px)]">
-            {content.experience.heading}
+            <ScrambleText text={content.experience.heading} />
           </h2>
         </div>
 

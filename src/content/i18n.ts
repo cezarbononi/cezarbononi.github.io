@@ -12,6 +12,17 @@ export type WorkItem = {
   tags: string[];
 };
 
+export type SiteItem = {
+  no: string;
+  slug: "avellen" | "cabeloliso" | "castherm" | "anacarolinatrama";
+  name: string;
+  url: string;
+  domain: string;
+  category: string;
+  body: string;
+  tags: string[];
+};
+
 export type StatItem = {
   value: string;
   label: string;
@@ -94,6 +105,7 @@ export type PortfolioCopy = {
     nav: {
       about: string;
       work: string;
+      sites: string;
       stack: string;
       experience: string;
       academic: string;
@@ -121,6 +133,13 @@ export type PortfolioCopy = {
     kicker: string;
     heading: string;
     items: WorkItem[];
+  };
+  sites: {
+    kicker: string;
+    heading: string;
+    lead: string;
+    visit: string;
+    items: SiteItem[];
   };
   stack: {
     kicker: string;
@@ -196,6 +215,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       nav: {
         about: "SOBRE",
         work: "PROJETOS",
+        sites: "SITES",
         stack: "STACK",
         experience: "EXPERIÊNCIA",
         academic: "FORMAÇÃO",
@@ -268,13 +288,61 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
         },
       ],
     },
+    sites: {
+      kicker: "// 03_LIVE_SITES",
+      heading: "Sites no ar",
+      lead: "Sites desenhados e desenvolvidos do zero para clientes reais: identidade, conteúdo, performance e publicação.",
+      visit: "Visitar site",
+      items: [
+        {
+          no: "S01",
+          slug: "avellen",
+          name: "Avellen",
+          url: "https://avellen.com.br/pt",
+          domain: "avellen.com.br",
+          category: "Estúdio · Design & Software",
+          body: "Site institucional do estúdio, com ilustração interativa, mascote guia e conteúdo em três idiomas (PT/EN/ES).",
+          tags: ["Multilíngue", "Motion", "Dark mode"],
+        },
+        {
+          no: "S02",
+          slug: "cabeloliso",
+          name: "Cabeloliso.com",
+          url: "https://www.cabeloliso.com/",
+          domain: "cabeloliso.com",
+          category: "Salão · Beleza",
+          body: "Landing page para salão especializado em alisamento, com narrativa visual \"fio a fio\", antes e depois e agendamento.",
+          tags: ["Landing page", "Scroll story", "Conversão"],
+        },
+        {
+          no: "S03",
+          slug: "castherm",
+          name: "Cas Therm",
+          url: "https://castherm.com.br/",
+          domain: "castherm.com.br",
+          category: "B2B · Instrumentação industrial",
+          body: "Catálogo B2B de instrumentos de medição e segurança do trabalho, com busca de produtos, captação de leads e orçamento via WhatsApp.",
+          tags: ["Catálogo", "B2B", "Lead capture"],
+        },
+        {
+          no: "S04",
+          slug: "anacarolinatrama",
+          name: "Ana Carolina Trama",
+          url: "https://anacarolinatrama.github.io/",
+          domain: "anacarolinatrama.github.io",
+          category: "Portfólio · UX/UI Designer",
+          body: "Portfólio autoral de Product Designer com estética retrô, interações lúdicas e versão bilíngue PT/EN.",
+          tags: ["Portfólio", "Bilíngue", "GitHub Pages"],
+        },
+      ],
+    },
     stack: {
-      kicker: "// 03_STACK",
+      kicker: "// 06_STACK",
       heading: "Stack",
       items: stackItems,
     },
     workflow: {
-      kicker: "// 04_AI_WORKFLOW",
+      kicker: "// 05_AI_WORKFLOW",
       heading: "AI-assisted Engineering",
       lead:
         "Uso IA como camada operacional de engenharia: revisar, desafiar, refatorar, testar e documentar com loops curtos, contexto claro e decisão humana no centro.",
@@ -325,7 +393,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       ],
     },
     experience: {
-      kicker: "// 05_EXPERIENCE",
+      kicker: "// 04_EXPERIENCE",
       heading: "Experiência",
       featured: [
         {
@@ -422,7 +490,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       },
     },
     academic: {
-      kicker: "// 06_ACADEMIC_ARCHIVE",
+      kicker: "// 07_ACADEMIC_ARCHIVE",
       heading: "Formação",
       items: [
         {
@@ -460,7 +528,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       ],
     },
     contact: {
-      kicker: "// 07_CONNECT",
+      kicker: "// 08_CONNECT",
       heading: "Vamos\nconstruir",
       body:
         "Aberto a desafios de engenharia: produtos financeiros, modernização de frontend e workflows com IA.",
@@ -483,6 +551,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       nav: {
         about: "ABOUT",
         work: "WORK",
+        sites: "SITES",
         stack: "STACK",
         experience: "EXPERIENCE",
         academic: "ACADEMIC",
@@ -554,13 +623,61 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
         },
       ],
     },
+    sites: {
+      kicker: "// 03_LIVE_SITES",
+      heading: "Live sites",
+      lead: "Websites designed and built from scratch for real clients: identity, content, performance and launch.",
+      visit: "Visit site",
+      items: [
+        {
+          no: "S01",
+          slug: "avellen",
+          name: "Avellen",
+          url: "https://avellen.com.br/pt",
+          domain: "avellen.com.br",
+          category: "Studio · Design & Software",
+          body: "Studio website with an interactive illustration, a guide mascot and content in three languages (PT/EN/ES).",
+          tags: ["Multilingual", "Motion", "Dark mode"],
+        },
+        {
+          no: "S02",
+          slug: "cabeloliso",
+          name: "Cabeloliso.com",
+          url: "https://www.cabeloliso.com/",
+          domain: "cabeloliso.com",
+          category: "Salon · Beauty",
+          body: "Landing page for a hair-straightening salon, with a strand-by-strand visual story, before/after gallery and booking.",
+          tags: ["Landing page", "Scroll story", "Conversion"],
+        },
+        {
+          no: "S03",
+          slug: "castherm",
+          name: "Cas Therm",
+          url: "https://castherm.com.br/",
+          domain: "castherm.com.br",
+          category: "B2B · Industrial instrumentation",
+          body: "B2B catalog for measurement and workplace-safety instruments, with product search, lead capture and WhatsApp quotes.",
+          tags: ["Catalog", "B2B", "Lead capture"],
+        },
+        {
+          no: "S04",
+          slug: "anacarolinatrama",
+          name: "Ana Carolina Trama",
+          url: "https://anacarolinatrama.github.io/",
+          domain: "anacarolinatrama.github.io",
+          category: "Portfolio · UX/UI Designer",
+          body: "Personal portfolio for a Product Designer, with a retro aesthetic, playful interactions and a bilingual PT/EN version.",
+          tags: ["Portfolio", "Bilingual", "GitHub Pages"],
+        },
+      ],
+    },
     stack: {
-      kicker: "// 03_STACK",
+      kicker: "// 06_STACK",
       heading: "Stack",
       items: stackItems,
     },
     workflow: {
-      kicker: "// 04_AI_WORKFLOW",
+      kicker: "// 05_AI_WORKFLOW",
       heading: "AI-assisted Engineering",
       lead:
         "I use AI as an operational engineering layer: review, challenge, refactor, test and document through short loops, explicit context and human judgment at the center.",
@@ -611,7 +728,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       ],
     },
     experience: {
-      kicker: "// 05_EXPERIENCE",
+      kicker: "// 04_EXPERIENCE",
       heading: "Experience",
       featured: [
         {
@@ -677,7 +794,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       },
     },
     academic: {
-      kicker: "// 06_ACADEMIC_ARCHIVE",
+      kicker: "// 07_ACADEMIC_ARCHIVE",
       heading: "Academic",
       items: [
         {
@@ -715,7 +832,7 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       ],
     },
     contact: {
-      kicker: "// 07_CONNECT",
+      kicker: "// 08_CONNECT",
       heading: "Let's\nbuild",
       body:
         "Open to engineering challenges: financial products, frontend modernization and AI-assisted workflows.",

@@ -1,15 +1,66 @@
+import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "../hooks/useLanguage";
 
+function useActiveSection() {
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const line = window.innerHeight * 0.4;
+      let current = "";
+
+      document.querySelectorAll<HTMLElement>("main section[id]").forEach((section) => {
+        if (section.getBoundingClientRect().top <= line) {
+          current = section.id;
+        }
+      });
+
+      setActive(current);
+    };
+
+    const onScroll = () => {
+      if (!frame) {
+        frame = requestAnimationFrame(update);
+      }
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return active;
+}
+
 export default function Header() {
   const { content } = useLanguage();
+  const activeSection = useActiveSection();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 28,
+    restDelta: 0.001,
+  });
+
   const navItems = [
-    { href: "#about", label: content.header.nav.about },
-    { href: "#work", label: content.header.nav.work },
-    { href: "#stack", label: content.header.nav.stack },
-    { href: "#exp", label: content.header.nav.experience },
-    { href: "#academic", label: content.header.nav.academic },
-    { href: "#contact", label: content.header.nav.contact },
+    { id: "about", label: content.header.nav.about },
+    { id: "work", label: content.header.nav.work },
+    { id: "sites", label: content.header.nav.sites },
+    { id: "exp", label: content.header.nav.experience },
+    { id: "stack", label: content.header.nav.stack },
+    { id: "academic", label: content.header.nav.academic },
+    { id: "contact", label: content.header.nav.contact },
   ];
 
   return (
@@ -31,14 +82,29 @@ export default function Header() {
         className="hidden items-center gap-6 font-mono text-xs tracking-[0.12em] text-cyber-text/70 min-[781px]:flex"
         aria-label="Main navigation"
       >
-        {navItems.map((item) => (
-          <a key={item.href} className="cy-nav-link" href={item.href}>
-            {item.label}
-          </a>
-        ))}
+        {navItems.map((item) => {
+          const isActive = item.id === activeSection;
+
+          return (
+            <a
+              key={item.id}
+              className={`cy-nav-link${isActive ? " is-active" : ""}`}
+              href={`#${item.id}`}
+              aria-current={isActive ? "location" : undefined}
+            >
+              {item.label}
+            </a>
+          );
+        })}
       </nav>
 
       <LanguageSwitcher />
+
+      <motion.div
+        className="cy-scroll-progress"
+        style={{ scaleX: progress }}
+        aria-hidden="true"
+      />
     </header>
   );
 }
