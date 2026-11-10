@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import ScrambleText from "./ScrambleText";
 import { useLanguage } from "../hooks/useLanguage";
 
 export default function Stack() {
@@ -15,7 +16,7 @@ export default function Stack() {
             {content.stack.kicker}
           </span>
           <h2 className="cy-section-title text-[clamp(28px,4.6vw,56px)]">
-            {content.stack.heading}
+            <ScrambleText text={content.stack.heading} />
           </h2>
         </div>
 

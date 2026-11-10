@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import ScrambleText from "./ScrambleText";
 import { useLanguage } from "../hooks/useLanguage";
 
 export default function Work() {
@@ -14,7 +15,7 @@ export default function Work() {
           {content.work.kicker}
         </span>
         <h2 className="cy-section-title text-[clamp(30px,5vw,64px)]">
-          {content.work.heading}
+          <ScrambleText text={content.work.heading} />
         </h2>
       </div>
 

@@ -7,6 +7,7 @@ import Experience from "./components/Experience";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
+import Sites from "./components/Sites";
 import Stack from "./components/Stack";
 import Work from "./components/Work";
 import CVPage from "./pages/CV";
@@ -27,9 +28,10 @@ export default function App() {
         <Marquee />
         <About />
         <Work />
-        <Stack />
-        <AIWorkflow />
+        <Sites />
         <Experience />
+        <AIWorkflow />
+        <Stack />
         <Academic />
         <Contact />
       </main>

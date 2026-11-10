@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import ScrambleText from "./ScrambleText";
 import { useLanguage } from "../hooks/useLanguage";
 
 export default function AIWorkflow() {
@@ -16,7 +17,7 @@ export default function AIWorkflow() {
               {content.workflow.kicker}
             </span>
             <h2 className="cy-section-title mt-4 max-w-[880px] text-[clamp(30px,5.4vw,70px)]">
-              {content.workflow.heading}
+              <ScrambleText text={content.workflow.heading} />
             </h2>
           </div>
 

@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import ScrambleText from "./ScrambleText";
 import { useLanguage } from "../hooks/useLanguage";
 
 export default function About() {
@@ -14,7 +15,7 @@ export default function About() {
 
         <Reveal className="min-w-0">
           <h2 className="cy-section-title max-w-[850px] text-[clamp(26px,4vw,52px)]">
-            {content.about.heading}
+            <ScrambleText text={content.about.heading} />
           </h2>
           <p className="mt-[22px] max-w-[680px] text-[clamp(15px,1.9vw,19px)] leading-[1.6] text-cyber-text/75">
             {content.about.body}
