@@ -14,13 +14,14 @@ export type WorkItem = {
 
 export type SiteItem = {
   no: string;
-  slug: "avellen" | "cabeloliso" | "castherm" | "anacarolinatrama";
+  slug: "avellen" | "cabeloliso" | "castherm" | "anacarolinatrama" | "viny";
   name: string;
   url: string;
   domain: string;
   category: string;
   body: string;
   tags: string[];
+  imageTreatment?: "artwork";
 };
 
 export type StatItem = {
@@ -139,6 +140,9 @@ export type PortfolioCopy = {
     heading: string;
     lead: string;
     visit: string;
+    carouselLabel: string;
+    previous: string;
+    next: string;
     items: SiteItem[];
   };
   stack: {
@@ -293,6 +297,9 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       heading: "Sites no ar",
       lead: "Sites desenhados e desenvolvidos do zero para clientes reais: identidade, conteúdo, performance e publicação.",
       visit: "Visitar site",
+      carouselLabel: "Portfólios de clientes",
+      previous: "Sites anteriores",
+      next: "Próximos sites",
       items: [
         {
           no: "S01",
@@ -333,6 +340,17 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           category: "Portfólio · UX/UI Designer",
           body: "Portfólio autoral de Product Designer com estética retrô, interações lúdicas e versão bilíngue PT/EN.",
           tags: ["Portfólio", "Bilíngue", "GitHub Pages"],
+        },
+        {
+          no: "S05",
+          slug: "viny",
+          name: "Viny",
+          url: "https://avellen.com.br/clientes/viny",
+          domain: "avellen.com.br/clientes/viny",
+          category: "Portfólio · Designer em formação",
+          body: "Portfólio pessoal de Marcus Vinicios Bononi, com uma jornada interativa entre Minas e São Paulo que conecta UX/UI, pesquisa, cultura de rua e movimento.",
+          tags: ["Portfólio", "UX/UI", "Interativo"],
+          imageTreatment: "artwork",
         },
       ],
     },
@@ -628,6 +646,9 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
       heading: "Live sites",
       lead: "Websites designed and built from scratch for real clients: identity, content, performance and launch.",
       visit: "Visit site",
+      carouselLabel: "Client portfolio projects",
+      previous: "Previous sites",
+      next: "Next sites",
       items: [
         {
           no: "S01",
@@ -668,6 +689,17 @@ export const portfolioContent: Record<Language, PortfolioCopy> = {
           category: "Portfolio · UX/UI Designer",
           body: "Personal portfolio for a Product Designer, with a retro aesthetic, playful interactions and a bilingual PT/EN version.",
           tags: ["Portfolio", "Bilingual", "GitHub Pages"],
+        },
+        {
+          no: "S05",
+          slug: "viny",
+          name: "Viny",
+          url: "https://avellen.com.br/clientes/viny",
+          domain: "avellen.com.br/clientes/viny",
+          category: "Portfolio · Designer in training",
+          body: "Personal portfolio for Marcus Vinicios Bononi, built around an interactive journey from Minas to São Paulo connecting UX/UI, research, street culture and motion.",
+          tags: ["Portfolio", "UX/UI", "Interactive"],
+          imageTreatment: "artwork",
         },
       ],
     },
